@@ -1,13 +1,11 @@
 // Función para calcular descuentos y cuotas
 function calcularDescuentosYCuotas(totalCompra) {
-    console.log("Inicio de calcularDescuentosYCuotas con totalCompra:", totalCompra);
     if (totalCompra >= 65000) return { cuotas: 12, descuento: 15 };
     if (totalCompra >= 50000) return { cuotas: 12, descuento: 10 };
     if (totalCompra >= 40000) return { cuotas: 6, descuento: 10 };
     if (totalCompra >= 30000) return { cuotas: 6, descuento: 5 };
     if (totalCompra >= 20000) return { cuotas: 3, descuento: 5 };
     if (totalCompra >= 15000) return { cuotas: 3, descuento: 0 };
-    alert("No hay descuento ni cuotas disponibles para este monto.");
     return { cuotas: 0, descuento: 0 };
 }
 
@@ -60,4 +58,4 @@ document.getElementById('pagar').addEventListener('click', () => {
 });
 
 // Mostrar el carrito al cargar la página
-mostrarCarrito();
+document.addEventListener('DOMContentLoaded', mostrarCarrito);

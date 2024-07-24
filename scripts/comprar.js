@@ -41,10 +41,15 @@ function mostrarResumenCompra() {
     const { cuotas, descuento } = calcularDescuentosYCuotas(total);
     const totalConDescuento = aplicarDescuento(total, descuento);
 
-    const totalElement = document.createElement('p');
-    totalElement.className = 'total-descuentos';
-    totalElement.innerHTML = `Total: $${total} <br> Descuento: ${descuento}% <br> Total con descuento: $${totalConDescuento} <br> Cuotas: ${cuotas}`;
-    resumenCompra.appendChild(totalElement);
+    const resumenTotal = document.createElement('div');
+    resumenTotal.className = 'text-end';
+    resumenTotal.innerHTML = `
+        <p>Total: $${total}</p>
+        <p>Descuento: ${descuento}%</p>
+        <p>Total con descuento: $${totalConDescuento}</p>
+        <p>Cuotas: ${cuotas}</p>
+    `;
+    resumenCompra.appendChild(resumenTotal);
 }
 
 // Función para eliminar productos del carrito
@@ -55,20 +60,18 @@ function eliminarDelCarrito(index) {
     mostrarResumenCompra();
 }
 
-// Función para finalizar la compra
-function finalizarCompra() {
+// Finalizar compra
+document.getElementById('finalizar-compra').addEventListener('click', () => {
+    localStorage.removeItem('carrito');
     Swal.fire({
+        icon: 'success',
         title: 'Compra Finalizada',
-        text: 'Gracias por tu compra. Pronto recibirás un correo con los detalles.',
-        icon: 'success'
+        text: 'Tu compra se ha realizado con éxito.',
+        confirmButtonText: 'OK'
     }).then(() => {
-        localStorage.removeItem('carrito');
         window.location.href = 'index.html';
     });
-}
+});
 
 // Mostrar el resumen de la compra al cargar la página
-mostrarResumenCompra();
-
-// Añadir evento al botón de finalizar compra
-document.getElementById('finalizar-compra').addEventListener('click', finalizarCompra);
+document.addEventListener('DOMContentLoaded', mostrarResumenCompra);

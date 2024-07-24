@@ -1,21 +1,21 @@
 
-// Función para mostrar los productos en la página principal
+// Función para mostrar los productos
 function mostrarProductos() {
     const contenedorProductos = document.getElementById('productos');
     productos.forEach((producto, index) => {
-        const card = document.createElement('div');
-        card.className = 'col-md-4 mb-4';
-        card.innerHTML = `
+        const productoCard = document.createElement('div');
+        productoCard.className = 'col-md-4 mb-4';
+        productoCard.innerHTML = `
             <div class="card">
-                <img src="https://via.placeholder.com/150" class="card-img-top" alt="${producto.nombre}">
-                <div class="card-body">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body text-center">
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">$${producto.precio}</p>
                     <button class="btn btn-primary" onclick="agregarAlCarrito(${index})">Agregar al Carrito</button>
                 </div>
             </div>
         `;
-        contenedorProductos.appendChild(card);
+        contenedorProductos.appendChild(productoCard);
     });
 }
 
@@ -33,4 +33,4 @@ function agregarAlCarrito(index) {
 }
 
 // Llamar a la función para mostrar los productos al cargar la página
-mostrarProductos();
+document.addEventListener('DOMContentLoaded', mostrarProductos);

@@ -9,11 +9,11 @@ body {
 }
 
 header {
-    background-color: #ff69b4;
+    background-color: #d42d97e2; /* Color del footer */
 }
 
 .navbar, .nav {
-    background-color: #ff69b4 !important;
+    background-color: #d42d97e2 !important; /* Color del footer */
 }
 
 .nav-link {
@@ -25,8 +25,9 @@ header {
 }
 
 .logo {
-    width: 50px;
+    width: 100px; /* Aumentar el tamaño del logo */
     height: auto;
+    margin-bottom: 10px; /* Agregar margen inferior */
 }
 
 .container {
@@ -109,6 +110,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px; /* Agregar margen inferior para evitar superposición */
 }
 
 .pie-pagina .grupo-1 .box figure {
@@ -117,6 +119,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px; /* Agregar margen inferior para evitar superposición */
 }
 
 .pie-pagina .grupo-1 .box figure img {

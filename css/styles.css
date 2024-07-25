@@ -210,3 +210,37 @@ footer {
     padding: 20px 0;
     text-align: center;
 }
+/* Estilos para el modal */
+/* Estilos para el modal */
+.modal-custom {
+    max-width: 600px; /* Ajusta el tamaño del modal aquí */
+    margin: auto;
+}
+
+.modal-header {
+    background-color: #d42d97e2; /* Fondo rosa oscuro */
+    border-bottom: none;
+}
+
+.modal-title {
+    color: white; /* Título en blanco */
+}
+
+.modal-body {
+    background-color: #ff85c0; /* Fondo rosa claro */
+}
+
+.modal-footer {
+    background-color: #d42d97e2; /* Fondo rosa oscuro */
+    border-top: none;
+}
+
+.btn-close {
+    color: white; /* Botón de cerrar en blanco */
+    background-color: transparent;
+    border: none;
+}
+
+.btn-close:hover {
+    color: #ff69b4; /* Botón de cerrar en rosa más claro al pasar el mouse */
+}

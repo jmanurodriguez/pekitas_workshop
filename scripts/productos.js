@@ -1,5 +1,5 @@
 const productos = [
-    { nombre: "Desodorante Solido", precio: 2000, imagen: "https://i.ibb.co/x3Xd1BL/balsamo-labial-9-11zon.webp" },
+    { nombre: "Desodorante Solido", precio: 2000, imagen: "https://i.ibb.co/CsM13Wr/desodorante-solido-16-11zon.webp" },
     { nombre: "Balsamo Labial", precio: 3000, imagen: "https://i.ibb.co/82nTTrR/balsamo-labial.jpg" },
     { nombre: "Serúm Capilar", precio: 3500, imagen: "https://i.ibb.co/NNCNjyM/nosotros2-25-11zon.webp" },
     { nombre: "Sepillo de Dientes", precio: 3700, imagen: "https://i.ibb.co/41v2mwV/sepillo-32-11zon.webp" },

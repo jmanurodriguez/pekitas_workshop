@@ -1,3 +1,4 @@
+// Definición de productos
 
 // Función para mostrar los productos
 function mostrarProductos() {

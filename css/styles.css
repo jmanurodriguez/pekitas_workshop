@@ -9,11 +9,11 @@ body {
 }
 
 header {
-    background-color: #d42d97e2; /* Color del footer */
+    background-color: #d42d97e2; 
 }
 
 .navbar, .nav {
-    background-color: #d42d97e2 !important; /* Color del footer */
+    background-color: #d42d97e2 !important; 
 }
 
 .nav-link {
@@ -25,9 +25,9 @@ header {
 }
 
 .logo {
-    width: 100px; /* Aumentar el tamaño del logo */
+    width: 100px; 
     height: auto;
-    margin-bottom: 10px; /* Agregar margen inferior */
+    margin-bottom: 10px; 
 }
 
 .container {
@@ -87,7 +87,7 @@ header {
     text-align: right;
 }
 
-/* Estilo para el pie de página */
+/* Estilo para el footer */
 .pie-pagina {
     width: 100%;
     background-image: linear-gradient(#d42d97e2, #cd1a6e2a);
@@ -110,7 +110,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px; /* Agregar margen inferior para evitar superposición */
+    margin-bottom: 20px; 
 }
 
 .pie-pagina .grupo-1 .box figure {
@@ -119,7 +119,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px; /* Agregar margen inferior para evitar superposición */
+    margin-bottom: 10px; 
 }
 
 .pie-pagina .grupo-1 .box figure img {
@@ -178,19 +178,16 @@ header {
     color: #fff;
 }
 
-/* Animación de entrada */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* Ajustes adicionales para la página de inicio */
 #productos .card {
     max-width: 300px;
     margin: 10px auto;
 }
 
-/* Remover los bullets de las listas en el footer */
 .pie-pagina ul {
     list-style: none;
     padding: 0;
@@ -200,7 +197,6 @@ header {
     margin-bottom: 10px;
 }
 
-/* Estilo adicional para asegurarse de que el pie de página no se desordene */
 footer {
     position: relative;
     bottom: 0;

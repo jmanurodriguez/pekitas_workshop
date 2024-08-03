@@ -1,20 +1,20 @@
-let audioContext;
-const productosPorPagina = 6;
-let paginaActual = 1;
-let productos = [];
-
 document.addEventListener('DOMContentLoaded', () => {
     // Mostrar el modal de promoción al cargar la página
-    const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
-    promoModal.show();
+    const promoModalElement = document.getElementById('promoModal');
+    if (promoModalElement) {
+        const promoModal = new bootstrap.Modal(promoModalElement);
+        promoModal.show();
+    }
 
     // Agregar efecto de fade-in para la sección de bienvenida
     const seccionBienvenida = document.querySelector('.seccion-bienvenida');
-    seccionBienvenida.style.opacity = 0;
-    setTimeout(() => {
-        seccionBienvenida.style.transition = 'opacity 1s';
-        seccionBienvenida.style.opacity = 1;
-    }, 100);
+    if (seccionBienvenida) {
+        seccionBienvenida.style.opacity = 0;
+        setTimeout(() => {
+            seccionBienvenida.style.transition = 'opacity 1s';
+            seccionBienvenida.style.opacity = 1;
+        }, 100);
+    }
 
     // Cargar productos desde el JSON
     fetch('productos.json')

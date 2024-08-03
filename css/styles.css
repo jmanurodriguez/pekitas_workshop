@@ -331,3 +331,49 @@ footer {
         font-size: 1em;
     }
 }
+.contacto {
+    background: #f5f5f5; /* Fondo suave para el formulario */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.titulo-contacto {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.contacto form {
+    background: #fff; /* Fondo blanco para el formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contacto .form-label {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.contacto .form-control {
+    border-radius: 5px;
+    border: 1px solid var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.contacto .form-control:focus {
+    border-color: var(--highlight-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+}
+
+.contacto .btn-primary {
+    background-color: var(--highlight-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.contacto .btn-primary:hover {
+    background-color: var(--accent-color);
+}

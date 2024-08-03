@@ -30,14 +30,20 @@
                             <a class="nav-link text-white" href="index.html#productos">Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="carrito.html">
-                                <i class="fas fa-shopping-cart"></i> Carrito
-                            </a>
+                            <a class="nav-link text-white" href="index.html#contacto">Contacto</a>
                         </li>
+                        <li class="nav-item">
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="carrito.html">
+                                    Carrito <i class="fas fa-shopping-cart"></i>
+                                </a>
+                            </li>
+                            
                     </ul>
                 </div>
             </div>
         </nav>
+        
     </header>
     
     <section id="nosotros" class="sobre-nosotros">
@@ -67,7 +73,42 @@
             </ul>
         </nav>
     </main>
+    <section id="contacto" class="contacto my-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Contacto</h2>
+            <form action="enviar_formulario.php" method="post" class="mx-auto" style="max-width: 600px;">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Lionel Andres" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Messi" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+54-1912-2022" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="leomessi@goat.com.ar" required>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Envianos tu consulta. Atte. Pekitas!" required></textarea>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
     
+    
+    
+
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">

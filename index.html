@@ -24,7 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#sobre-nosotros">Sobre Nosotros</a>
+                            <a class="nav-link text-white" href="index.html#sobre-nosotros">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="index.html#productos">Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="carrito.html">
@@ -91,7 +94,7 @@
                 </div>
                 <div class="modal-body">
                     <div style="position: relative; width: 100%; height: 0; padding-top: 83.8298%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?embed" allowfullscreen></iframe>
                     </div>
                     <a href="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?utm_content=DAGL-VNhq5Q&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener"></a>
                 </div>
@@ -104,5 +107,11 @@
 
     <script src="scripts/productos.js"></script>
     <script src="scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+            promoModal.show();
+        });
+    </script>
 </body>
 </html>

@@ -16,7 +16,6 @@ const productos = [
     { nombre: "Crema Para Peinar de Mango", precio: 10000, imagen: "https://i.ibb.co/hMnP4jD/crema-para-peinar-mango.webp" },
 ];
 
-
 // Función para mostrar los productos
 const mostrarProductos = () => {
     const contenedorProductos = document.getElementById('productos');

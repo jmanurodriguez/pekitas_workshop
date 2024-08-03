@@ -1,10 +1,10 @@
-
 // Función para mostrar los productos
 function mostrarProductos() {
-    const contenedorProductos = document.getElementById('productos');
+    const contenedorProductos = document.getElementById('productos-list');
+    contenedorProductos.innerHTML = ""; // Limpiar contenedor antes de añadir productos
     productos.forEach((producto, index) => {
         const productoCard = document.createElement('div');
-        productoCard.className = 'col-md-4 mb-4';
+        productoCard.className = 'col-md-4 mb-4'; // Asegurar clase de Bootstrap correcta
         productoCard.innerHTML = `
             <div class="card">
                 <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
@@ -33,4 +33,18 @@ function agregarAlCarrito(index) {
 }
 
 // Llamar a la función para mostrar los productos al cargar la página
-document.addEventListener('DOMContentLoaded', mostrarProductos);
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarProductos();
+    
+    // Mostrar el modal al cargar la página
+    const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+    promoModal.show();
+
+    // Agregar efecto de fade-in para la sección de bienvenida
+    const seccionBienvenida = document.querySelector('.seccion-bienvenida');
+    seccionBienvenida.style.opacity = 0;
+    setTimeout(() => {
+        seccionBienvenida.style.transition = 'opacity 1s';
+        seccionBienvenida.style.opacity = 1;
+    }, 100);
+});

@@ -24,6 +24,9 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
+                            <a class="nav-link text-white" href="#sobre-nosotros">Sobre Nosotros</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-white" href="carrito.html">
                                 <i class="fas fa-shopping-cart"></i>
                             </a>
@@ -33,11 +36,27 @@
             </div>
         </nav>
     </header>
+    
+    <!-- Sección Sobre Nosotros -->
+    <section id="sobre-nosotros" class="seccion-bienvenida container my-5">
+        <h2 class="text-left">Bienvenidos a Pekitas Ecotienda</h2>
+        <h3 class="text-left">Sumate a un cambio natural</h3>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="/homesprai.jpeg" alt="Pekitas Ecotienda Home Spray" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Etiam ac magna non libero pretium consectetur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            </div>
+        </div>
+    </section>
+
     <main class="container my-4">
         <h2 class="text-center">Nuestros Productos</h2>
         <div id="productos" class="row">
         </div>
     </main>
+    
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
@@ -64,33 +83,26 @@
 
     <!-- Modal -->
     <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-custom">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="promoModalLabel">Promoción</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div style="position: relative; width: 100%; height: 0; padding-top: 83.8298%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
-              <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;" src="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+        <div class="modal-dialog modal-lg modal-custom">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="promoModalLabel">Promoción</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 83.8298%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0;" src="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+                    </div>
+                    <a href="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?utm_content=DAGL-VNhq5Q&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener"></a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
-            <a href="https://www.canva.com/design/DAGL-VNhq5Q/Ohu39Dtysbmp8haQCHFsew/view?utm_content=DAGL-VNhq5Q&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener"></a>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
         </div>
-      </div>
     </div>
 
     <script src="scripts/productos.js"></script>
     <script src="scripts/main.js"></script>
-    <script>
-      // Mostrar el modal al cargar la página
-      document.addEventListener('DOMContentLoaded', () => {
-        const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
-        promoModal.show();
-      });
-    </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 let audioContext;
 const productosPorPagina = 6;
 let paginaActual = 1;
+let productos = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     // Mostrar el modal de promoción al cargar la página
@@ -15,8 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         seccionBienvenida.style.opacity = 1;
     }, 100);
 
-    // Llamar a la función para mostrar los productos al cargar la página
-    mostrarProductos(paginaActual);
+    // Cargar productos desde el JSON
+    fetch('productos.json')
+        .then(response => response.json())
+        .then(data => {
+            productos = data;
+            mostrarProductos(paginaActual);
+        })
+        .catch(error => console.error('Error al cargar productos:', error));
 
     // Crear AudioContext después de una interacción del usuario
     document.body.addEventListener('click', () => {

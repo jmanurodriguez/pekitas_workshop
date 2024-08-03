@@ -1,9 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
-    mostrarProductos();
+let audioContext;
+const productosPorPagina = 6;
+let paginaActual = 1;
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar el modal de promoción al cargar la página
     const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
     promoModal.show();
 
+    // Agregar efecto de fade-in para la sección de bienvenida
     const seccionBienvenida = document.querySelector('.seccion-bienvenida');
     seccionBienvenida.style.opacity = 0;
     setTimeout(() => {
@@ -11,36 +15,58 @@ document.addEventListener('DOMContentLoaded', () => {
         seccionBienvenida.style.opacity = 1;
     }, 100);
 
-    // Añadir evento al botón de búsqueda
-    document.getElementById('searchButton').addEventListener('click', filtrarProductos);
-    document.getElementById('searchBar').addEventListener('input', filtrarProductos);
+    // Llamar a la función para mostrar los productos al cargar la página
+    mostrarProductos(paginaActual);
+
+    // Crear AudioContext después de una interacción del usuario
+    document.body.addEventListener('click', () => {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    }, { once: true });
 });
 
-function mostrarProductos(filtro = "") {
+function mostrarProductos(pagina) {
     const contenedorProductos = document.getElementById('productos');
     contenedorProductos.innerHTML = ""; // Limpiar contenedor antes de añadir productos
-    productos
-        .filter(producto => producto.nombre.toLowerCase().includes(filtro.toLowerCase()))
-        .forEach((producto, index) => {
-            const productoCard = document.createElement('div');
-            productoCard.className = 'col-md-4 mb-4'; // Asegurar clase de Bootstrap correcta
-            productoCard.innerHTML = `
-                <div class="card">
-                    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">$${producto.precio}</p>
-                        <button class="btn btn-primary" onclick="agregarAlCarrito(${index})">Agregar al Carrito</button>
-                    </div>
+
+    const inicio = (pagina - 1) * productosPorPagina;
+    const fin = inicio + productosPorPagina;
+
+    productos.slice(inicio, fin).forEach((producto, index) => {
+        const productoCard = document.createElement('div');
+        productoCard.className = 'col-md-4 mb-4';
+        productoCard.innerHTML = `
+            <div class="card">
+                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                <div class="card-body text-center">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">$${producto.precio}</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito(${index + inicio})">Agregar al Carrito</button>
                 </div>
-            `;
-            contenedorProductos.appendChild(productoCard);
-        });
+            </div>
+        `;
+        contenedorProductos.appendChild(productoCard);
+    });
+
+    mostrarPaginacion(pagina);
 }
 
-function filtrarProductos() {
-    const filtro = document.getElementById('searchBar').value;
-    mostrarProductos(filtro);
+function mostrarPaginacion(paginaActual) {
+    const totalPaginas = Math.ceil(productos.length / productosPorPagina);
+    const contenedorPaginacion = document.getElementById('pagination');
+    contenedorPaginacion.innerHTML = "";
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        const itemPaginacion = document.createElement('li');
+        itemPaginacion.className = `page-item ${i === paginaActual ? 'active' : ''}`;
+        itemPaginacion.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        itemPaginacion.addEventListener('click', (e) => {
+            e.preventDefault();
+            mostrarProductos(i);
+        });
+        contenedorPaginacion.appendChild(itemPaginacion);
+    }
 }
 
 function agregarAlCarrito(index) {

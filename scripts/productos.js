@@ -16,10 +16,21 @@ const productos = [
     { nombre: "Crema Para Peinar de Mango", precio: 10000, imagen: "https://i.ibb.co/hMnP4jD/crema-para-peinar-mango.webp" },
 ];
 
-// Función para mostrar los productos
-const mostrarProductos = () => {
+const productosPorPagina = 6;
+let paginaActual = 1;
+
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarProductos(paginaActual);
+});
+
+function mostrarProductos(pagina) {
     const contenedorProductos = document.getElementById('productos');
-    productos.forEach((producto, index) => {
+    contenedorProductos.innerHTML = ""; // Limpiar contenedor antes de añadir productos
+
+    const inicio = (pagina - 1) * productosPorPagina;
+    const fin = inicio + productosPorPagina;
+
+    productos.slice(inicio, fin).forEach((producto, index) => {
         const productoCard = document.createElement('div');
         productoCard.className = 'col-md-4 mb-4';
         productoCard.innerHTML = `
@@ -28,16 +39,34 @@ const mostrarProductos = () => {
                 <div class="card-body text-center">
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">$${producto.precio}</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito(${index})">Agregar al Carrito</button>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito(${index + inicio})">Agregar al Carrito</button>
                 </div>
             </div>
         `;
         contenedorProductos.appendChild(productoCard);
     });
-};
 
-// Función para agregar productos al carrito
-const agregarAlCarrito = (index) => {
+    mostrarPaginacion(pagina);
+}
+
+function mostrarPaginacion(paginaActual) {
+    const totalPaginas = Math.ceil(productos.length / productosPorPagina);
+    const contenedorPaginacion = document.getElementById('pagination');
+    contenedorPaginacion.innerHTML = "";
+
+    for (let i = 1; i <= totalPaginas; i++) {
+        const itemPaginacion = document.createElement('li');
+        itemPaginacion.className = `page-item ${i === paginaActual ? 'active' : ''}`;
+        itemPaginacion.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        itemPaginacion.addEventListener('click', (e) => {
+            e.preventDefault();
+            mostrarProductos(i);
+        });
+        contenedorPaginacion.appendChild(itemPaginacion);
+    }
+}
+
+function agregarAlCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito.push(productos[index]);
     localStorage.setItem('carrito', JSON.stringify(carrito));
@@ -47,7 +76,4 @@ const agregarAlCarrito = (index) => {
         text: `${productos[index].nombre} ha sido agregado al carrito.`,
         timer: 1500
     });
-};
-
-// Llamar a la función para mostrar los productos al cargar la página
-document.addEventListener('DOMContentLoaded', mostrarProductos);
+}

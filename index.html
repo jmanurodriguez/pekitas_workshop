@@ -58,6 +58,11 @@
         <h2 class="text-center">Nuestros Productos</h2>
         <div id="productos" class="row">
         </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination pagination-sm justify-content-center mt-4" id="pagination">
+                <!-- Botones de paginación se añadirán aquí -->
+            </ul>
+        </nav>
     </main>
     
     <footer class="pie-pagina">
@@ -107,11 +112,5 @@
 
     <script src="scripts/productos.js"></script>
     <script src="scripts/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
-            promoModal.show();
-        });
-    </script>
 </body>
 </html>

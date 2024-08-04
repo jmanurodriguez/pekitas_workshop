@@ -416,3 +416,14 @@ footer {
 .contacto .btn-primary:hover {
     background-color: var(--accent-color);
 }
+/* Estilos para el modal del carrito */
+.modal-lg .modal-content {
+    max-width: 800px;
+}
+
+.total-descuentos {
+    font-family: 'Roboto', sans-serif;
+    color: var(--highlight-color);
+    font-size: 1.2em;
+    text-align: right;
+}

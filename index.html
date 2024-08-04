@@ -159,6 +159,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal para mostrar el carrito -->
+    <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="items-carrito" class="mb-4">
+                        <!-- Los productos se añadirán aquí dinámicamente con JavaScript -->
+                    </div>
+                    <p id="total" class="text-end total-descuentos">Total: $0</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" id="finalizar-compra">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="scripts/productos.js"></script>
     <script src="scripts/main.js"></script>

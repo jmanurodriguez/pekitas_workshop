@@ -28,7 +28,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="index.html#sobre-nosotros">Sobre Nosotros</a>
+                            <a class="nav-link text-white" href="index.html#nosotros">Sobre Nosotros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="index.html#productos">Productos</a>
@@ -37,7 +37,7 @@
                             <a class="nav-link text-white" href="index.html#contacto">Contacto</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="carrito.html">
+                            <a class="nav-link text-white" href="#" id="carrito-link">
                                 Carrito <i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-secondary">0</span>
                             </a>
                         </li>
@@ -47,11 +47,10 @@
         </nav>
     </header>
     
-    <!-- Agregamos la sección del banner aquí -->
     <section id="banner" class="banner my-0">
         <div class="container-fluid p-0">
             <div class="banner-container">
-                <img src="https://res-console.cloudinary.com/dpcpcnqmq/thumbnails/v1/image/upload/v1722779555/QmFubmVyX3dlYl9ob3Jpem9udGFsX251ZXZvc19pbmdyZXNvc19tYXF1aWxsYWplX2dyYWRpZW50ZV9jb2xvcmlkb18xOTIwX3hfMzAwX3B4X290cHpsZA==/drilldown" alt="Banner Promocional" class="banner-img">
+                <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722779555/Banner_web_horizontal_nuevos_ingresos_maquillaje_gradiente_colorido_1920_x_300_px_otpzld.png" alt="Banner Promocional" class="banner-img">
             </div>
         </div>
     </section>
@@ -73,19 +72,18 @@
     </section>
 
     <main class="container my-4">
-        <h2 class="text-center">Nuestros Productos</h2>
+        <h2 class="titulo-productos text-center">Nuestros Productos</h2>
         <div id="productos" class="row">
         </div>
         <nav aria-label="Page navigation">
             <ul class="pagination pagination-sm justify-content-center mt-4" id="pagination">
-                <!-- Botones de paginación se añadirán aquí -->
             </ul>
         </nav>
     </main>
     
     <section id="contacto" class="contacto my-5">
         <div class="container">
-            <h2 class="text-center mb-4">Contacto</h2>
+            <h2 class="titulo-contacto text-center mb-4">Contacto</h2>
             <form id="contactoForm" class="mx-auto" style="max-width: 600px;">
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -170,7 +168,6 @@
                 </div>
                 <div class="modal-body">
                     <div id="items-carrito" class="mb-4">
-                        <!-- Los productos se añadirán aquí dinámicamente con JavaScript -->
                     </div>
                     <p id="total" class="text-end total-descuentos">Total: $0</p>
                 </div>
@@ -184,6 +181,6 @@
     
     <script src="scripts/productos.js"></script>
     <script src="scripts/main.js"></script>
-    <script src="scripts/formulario.js"></script> <!-- Enlace al nuevo archivo JS -->
+    <script src="scripts/formulario.js"></script>
 </body>
 </html>

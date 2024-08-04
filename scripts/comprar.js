@@ -1,4 +1,3 @@
-// Función para calcular descuentos y cuotas
 function calcularDescuentosYCuotas(totalCompra) {
     if (totalCompra >= 65000) return { cuotas: 12, descuento: 15 };
     if (totalCompra >= 50000) return { cuotas: 12, descuento: 10 };
@@ -9,10 +8,8 @@ function calcularDescuentosYCuotas(totalCompra) {
     return { cuotas: 0, descuento: 0 };
 }
 
-// Función de orden superior para aplicar descuentos
 const aplicarDescuento = (total, descuento) => total - (total * descuento / 100);
 
-// Función para mostrar el resumen de la compra
 function mostrarResumenCompra() {
     const resumenCompra = document.getElementById('resumen-compra');
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -52,7 +49,6 @@ function mostrarResumenCompra() {
     resumenCompra.appendChild(resumenTotal);
 }
 
-// Función para eliminar productos del carrito
 function eliminarDelCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito.splice(index, 1);
@@ -60,7 +56,6 @@ function eliminarDelCarrito(index) {
     mostrarResumenCompra();
 }
 
-// Finalizar compra
 document.getElementById('finalizar-compra').addEventListener('click', () => {
     localStorage.removeItem('carrito');
     Swal.fire({
@@ -73,5 +68,4 @@ document.getElementById('finalizar-compra').addEventListener('click', () => {
     });
 });
 
-// Mostrar el resumen de la compra al cargar la página
 document.addEventListener('DOMContentLoaded', mostrarResumenCompra);

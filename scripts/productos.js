@@ -3,19 +3,19 @@ const productosPorPagina = 6;
 let paginaActual = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Cargar productos desde el JSON
     fetch('productos.json')
         .then(response => response.json())
         .then(data => {
             productos = data;
             mostrarProductos(paginaActual);
+            actualizarContadorCarrito();
         })
         .catch(error => console.error('Error al cargar productos:', error));
 });
 
 function mostrarProductos(pagina) {
     const contenedorProductos = document.getElementById('productos');
-    contenedorProductos.innerHTML = ""; // Limpiar contenedor antes de añadir productos
+    contenedorProductos.innerHTML = "";
 
     const inicio = (pagina - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
@@ -57,15 +57,12 @@ function mostrarPaginacion(paginaActual) {
         contenedorPaginacion.appendChild(itemPaginacion);
     };
 
-    // Flecha para retroceder
     crearItemPaginacion(paginaActual - 1, '&laquo;', false, paginaActual === 1);
 
-    // Números de paginación
     for (let i = 1; i <= totalPaginas; i++) {
         crearItemPaginacion(i, i, i === paginaActual);
     }
 
-    // Flecha para avanzar
     crearItemPaginacion(paginaActual + 1, '&raquo;', false, paginaActual === totalPaginas);
 }
 
@@ -79,4 +76,11 @@ function agregarAlCarrito(index) {
         text: `${productos[index].nombre} ha sido agregado al carrito.`,
         timer: 1500
     });
+    actualizarContadorCarrito();
+}
+
+function actualizarContadorCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const cartCount = document.getElementById('cart-count');
+    cartCount.textContent = carrito.length;
 }

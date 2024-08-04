@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mostrar el modal de promoción al cargar la página
     const promoModalElement = document.getElementById('promoModal');
     if (promoModalElement) {
         const promoModal = new bootstrap.Modal(promoModalElement);
         promoModal.show();
     }
 
-    // Agregar efecto de fade-in para la sección de bienvenida
     const seccionBienvenida = document.querySelector('.seccion-bienvenida');
     if (seccionBienvenida) {
         seccionBienvenida.style.opacity = 0;
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    // Cargar productos desde el JSON
     fetch('productos.json')
         .then(response => response.json())
         .then(data => {
@@ -26,29 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => console.error('Error al cargar productos:', error));
 
-    // Crear AudioContext después de una interacción del usuario
     document.body.addEventListener('click', () => {
         if (!audioContext) {
             audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
     }, { once: true });
 
-    // Actualizar el contador del carrito al cargar la página
     actualizarContadorCarrito();
 
-    // Evento para abrir el modal del carrito
-    document.querySelector('.nav-link[href="carrito.html"]').addEventListener('click', (e) => {
+    document.querySelector('#carrito-link').addEventListener('click', (e) => {
         e.preventDefault();
         mostrarCarritoEnModal();
     });
 
-    // Finalizar compra
     document.getElementById('finalizar-compra').addEventListener('click', finalizarCompra);
 });
 
 function mostrarProductos(pagina) {
     const contenedorProductos = document.getElementById('productos');
-    contenedorProductos.innerHTML = ""; // Limpiar contenedor antes de añadir productos
+    contenedorProductos.innerHTML = "";
 
     const inicio = (pagina - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
@@ -90,15 +83,12 @@ function mostrarPaginacion(paginaActual) {
         contenedorPaginacion.appendChild(itemPaginacion);
     };
 
-    // Flecha para retroceder
     crearItemPaginacion(paginaActual - 1, '&laquo;', false, paginaActual === 1);
 
-    // Números de paginación
     for (let i = 1; i <= totalPaginas; i++) {
         crearItemPaginacion(i, i, i === paginaActual);
     }
 
-    // Flecha para avanzar
     crearItemPaginacion(paginaActual + 1, '&raquo;', false, paginaActual === totalPaginas);
 }
 
@@ -190,4 +180,3 @@ function finalizarCompra() {
         window.location.href = 'index.html';
     });
 }
-

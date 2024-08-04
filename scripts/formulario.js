@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        // Validar los campos del formulario
         const nombre = document.getElementById('nombre').value.trim();
         const apellido = document.getElementById('apellido').value.trim();
         const telefono = document.getElementById('telefono').value.trim();
@@ -29,16 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Aquí puedes añadir el código para enviar el formulario usando AJAX o Fetch API
-
-        // Mostrar mensaje de éxito
         Swal.fire({
             icon: 'success',
             title: 'Enviado',
             text: 'Tu mensaje ha sido enviado con éxito.',
         });
 
-        // Resetear el formulario
         form.reset();
     });
 

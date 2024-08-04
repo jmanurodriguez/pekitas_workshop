@@ -46,19 +46,15 @@ function mostrarProductos(pagina) {
     const inicio = (pagina - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
 
+    const template = document.getElementById('producto-template').content;
+
     productos.slice(inicio, fin).forEach((producto, index) => {
-        const productoCard = document.createElement('div');
-        productoCard.className = 'col-md-4 mb-4';
-        productoCard.innerHTML = `
-            <div class="card">
-                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-                <div class="card-body text-center">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">$${producto.precio}</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito(${index + inicio})">Agregar al Carrito</button>
-                </div>
-            </div>
-        `;
+        const productoCard = document.importNode(template, true);
+        productoCard.querySelector('.card-img-top').src = producto.imagen;
+        productoCard.querySelector('.card-img-top').alt = producto.nombre;
+        productoCard.querySelector('.card-title').textContent = producto.nombre;
+        productoCard.querySelector('.card-text').textContent = `$${producto.precio}`;
+        productoCard.querySelector('.btn-primary').setAttribute('onclick', `agregarAlCarrito(${index + inicio})`);
         contenedorProductos.appendChild(productoCard);
     });
 
@@ -124,22 +120,16 @@ function mostrarCarrito() {
     itemsCarrito.innerHTML = '';
     let total = 0;
 
+    const template = document.getElementById('carrito-item-template').content;
+
     carrito.forEach((producto, index) => {
         total += producto.precio;
-        const item = document.createElement('div');
-        item.className = 'row mb-3';
-        item.innerHTML = `
-            <div class="col-4">
-                <img src="${producto.imagen}" class="img-fluid" alt="${producto.nombre}">
-            </div>
-            <div class="col-4">
-                <h5>${producto.nombre}</h5>
-                <p>$${producto.precio}</p>
-            </div>
-            <div class="col-4 text-end">
-                <button class="btn btn-danger" onclick="eliminarDelCarrito(${index})">Eliminar</button>
-            </div>
-        `;
+        const item = document.importNode(template, true);
+        item.querySelector('.img-fluid').src = producto.imagen;
+        item.querySelector('.img-fluid').alt = producto.nombre;
+        item.querySelector('h5').textContent = producto.nombre;
+        item.querySelector('p').textContent = `$${producto.precio}`;
+        item.querySelector('.btn-danger').setAttribute('onclick', `eliminarDelCarrito(${index})`);
         itemsCarrito.appendChild(item);
     });
 

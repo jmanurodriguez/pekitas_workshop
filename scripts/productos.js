@@ -20,19 +20,15 @@ function mostrarProductos(pagina) {
     const inicio = (pagina - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
 
+    const template = document.getElementById('producto-template').content;
+
     productos.slice(inicio, fin).forEach((producto, index) => {
-        const productoCard = document.createElement('div');
-        productoCard.className = 'col-md-4 mb-4';
-        productoCard.innerHTML = `
-            <div class="card">
-                <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
-                <div class="card-body text-center">
-                    <h5 class="card-title">${producto.nombre}</h5>
-                    <p class="card-text">$${producto.precio}</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarrito(${index + inicio})">Agregar al Carrito</button>
-                </div>
-            </div>
-        `;
+        const productoCard = document.importNode(template, true);
+        productoCard.querySelector('.card-img-top').src = producto.imagen;
+        productoCard.querySelector('.card-img-top').alt = producto.nombre;
+        productoCard.querySelector('.card-title').textContent = producto.nombre;
+        productoCard.querySelector('.card-text').textContent = `$${producto.precio}`;
+        productoCard.querySelector('.btn-primary').setAttribute('onclick', `agregarAlCarrito(${index + inicio})`);
         contenedorProductos.appendChild(productoCard);
     });
 

@@ -16,22 +16,16 @@ function mostrarResumenCompra() {
     resumenCompra.innerHTML = '';
     let total = 0;
 
+    const template = document.getElementById('carrito-item-template').content;
+
     carrito.forEach((producto, index) => {
         total += producto.precio;
-        const item = document.createElement('div');
-        item.className = 'row mb-3';
-        item.innerHTML = `
-            <div class="col-4">
-                <img src="${producto.imagen}" class="img-fluid" alt="${producto.nombre}">
-            </div>
-            <div class="col-4">
-                <h5>${producto.nombre}</h5>
-                <p>$${producto.precio}</p>
-            </div>
-            <div class="col-4 text-end">
-                <button class="btn btn-danger" onclick="eliminarDelCarrito(${index})">Eliminar</button>
-            </div>
-        `;
+        const item = document.importNode(template, true);
+        item.querySelector('.img-fluid').src = producto.imagen;
+        item.querySelector('.img-fluid').alt = producto.nombre;
+        item.querySelector('h5').textContent = producto.nombre;
+        item.querySelector('p').textContent = `$${producto.precio}`;
+        item.querySelector('.btn-danger').setAttribute('onclick', `eliminarDelCarrito(${index})`);
         resumenCompra.appendChild(item);
     });
 

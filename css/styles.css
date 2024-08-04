@@ -19,8 +19,14 @@ body {
     padding: 0;
 }
 
-header, .navbar, .nav {
+header, .navbar, .nav, .banner, .container-fluid {
+    margin: 0;
+    padding: 0;
     background-color: var(--primary-color) !important;
+}
+
+.navbar {
+    margin-bottom: 0; /* Eliminar margen inferior */
 }
 
 .nav-link {
@@ -40,6 +46,36 @@ header, .navbar, .nav {
 
 .container {
     padding: 20px;
+}
+
+/* Estilos para el banner */
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff; /* Fondo blanco para evitar bordes negros */
+}
+
+.banner-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 300px; /* Ajusta la altura máxima del banner aquí */
+    object-fit: cover; /* Asegura que la imagen mantenga sus proporciones */
+}
+
+/* Añadimos la animación para el banner */
+.banner-hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
 }
 
 /* Estilos para las cards de los productos */
@@ -248,7 +284,7 @@ footer {
 
 /* Estilo para el lorem */
 .lorem-text {
-    color: var(--dark-color);
+    color: var (--dark-color);
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: justify;
@@ -331,6 +367,7 @@ footer {
         font-size: 1em;
     }
 }
+
 .contacto {
     background: #f5f5f5; /* Fondo suave para el formulario */
     padding: 30px;

@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
+    // Agregar efecto de fade-in para el banner
+    const bannerImg = document.querySelector('.banner-img');
+    if (bannerImg) {
+        setTimeout(() => {
+            bannerImg.classList.add('banner-visible');
+        }, 200);
+    }
+
     // Cargar productos desde el JSON
     fetch('productos.json')
         .then(response => response.json())
@@ -31,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
             audioContext = new (window.AudioContext || window.webkitAudioContext)();
         }
     }, { once: true });
+
+    // Añadir evento de scroll para ocultar el banner
+    window.addEventListener('scroll', () => {
+        const banner = document.getElementById('banner');
+        if (window.scrollY > 100) {
+            banner.classList.add('banner-hidden');
+        } else {
+            banner.classList.remove('banner-hidden');
+        }
+    });
 });
 
 function mostrarProductos(pagina) {
@@ -89,7 +107,6 @@ function mostrarPaginacion(paginaActual) {
     crearItemPaginacion(paginaActual + 1, '&raquo;', false, paginaActual === totalPaginas);
 }
 
-
 function agregarAlCarrito(index) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     carrito.push(productos[index]);
@@ -101,3 +118,4 @@ function agregarAlCarrito(index) {
         timer: 1500
     });
 }
+

@@ -46,15 +46,13 @@ function mostrarProductos(pagina) {
     const inicio = (pagina - 1) * productosPorPagina;
     const fin = inicio + productosPorPagina;
 
-    const template = document.getElementById('producto-template').content;
-
     productos.slice(inicio, fin).forEach((producto, index) => {
-        const productoCard = document.importNode(template, true);
+        const productoCard = document.querySelector('#producto-template').content.cloneNode(true);
         productoCard.querySelector('.card-img-top').src = producto.imagen;
         productoCard.querySelector('.card-img-top').alt = producto.nombre;
         productoCard.querySelector('.card-title').textContent = producto.nombre;
         productoCard.querySelector('.card-text').textContent = `$${producto.precio}`;
-        productoCard.querySelector('.btn-primary').setAttribute('onclick', `agregarAlCarrito(${index + inicio})`);
+        productoCard.querySelector('.btn-primary').onclick = () => agregarAlCarrito(index + inicio);
         contenedorProductos.appendChild(productoCard);
     });
 
@@ -120,16 +118,14 @@ function mostrarCarrito() {
     itemsCarrito.innerHTML = '';
     let total = 0;
 
-    const template = document.getElementById('carrito-item-template').content;
-
     carrito.forEach((producto, index) => {
         total += producto.precio;
-        const item = document.importNode(template, true);
+        const item = document.querySelector('#carrito-item-template').content.cloneNode(true);
         item.querySelector('.img-fluid').src = producto.imagen;
         item.querySelector('.img-fluid').alt = producto.nombre;
         item.querySelector('h5').textContent = producto.nombre;
         item.querySelector('p').textContent = `$${producto.precio}`;
-        item.querySelector('.btn-danger').setAttribute('onclick', `eliminarDelCarrito(${index})`);
+        item.querySelector('.btn-danger').onclick = () => eliminarDelCarrito(index);
         itemsCarrito.appendChild(item);
     });
 
@@ -170,3 +166,4 @@ function finalizarCompra() {
         window.location.href = 'index.html';
     });
 }
+

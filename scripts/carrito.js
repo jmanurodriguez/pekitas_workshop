@@ -50,6 +50,7 @@ function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
     localStorage.setItem('carrito', JSON.stringify(carrito));
     mostrarCarrito();
+    actualizarContadorCarrito();
 }
 
 // Redirigir a la página de compra al hacer clic en "Proceder al Pago"
@@ -59,3 +60,12 @@ document.getElementById('pagar').addEventListener('click', () => {
 
 // Mostrar el carrito al cargar la página
 document.addEventListener('DOMContentLoaded', mostrarCarrito);
+
+// Actualizar el contador del carrito
+document.addEventListener('DOMContentLoaded', actualizarContadorCarrito);
+
+function actualizarContadorCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const cartCount = document.getElementById('cart-count');
+    cartCount.textContent = carrito.length;
+}

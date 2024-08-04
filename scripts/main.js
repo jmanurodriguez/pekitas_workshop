@@ -16,20 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
 
-    // Agregar efecto de fade-in para el banner
-    const bannerImg = document.querySelector('.banner-img');
-    if (bannerImg) {
-        setTimeout(() => {
-            bannerImg.classList.add('banner-visible');
-        }, 200);
-    }
-
     // Cargar productos desde el JSON
     fetch('productos.json')
         .then(response => response.json())
         .then(data => {
             productos = data;
             mostrarProductos(paginaActual);
+            actualizarContadorCarrito();
         })
         .catch(error => console.error('Error al cargar productos:', error));
 
@@ -40,15 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { once: true });
 
-    // Añadir evento de scroll para ocultar el banner
-    window.addEventListener('scroll', () => {
-        const banner = document.getElementById('banner');
-        if (window.scrollY > 100) {
-            banner.classList.add('banner-hidden');
-        } else {
-            banner.classList.remove('banner-hidden');
-        }
-    });
+    // Actualizar el contador del carrito al cargar la página
+    actualizarContadorCarrito();
 });
 
 function mostrarProductos(pagina) {
@@ -117,5 +103,11 @@ function agregarAlCarrito(index) {
         text: `${productos[index].nombre} ha sido agregado al carrito.`,
         timer: 1500
     });
+    actualizarContadorCarrito();
 }
 
+function actualizarContadorCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const cartCount = document.getElementById('cart-count');
+    cartCount.textContent = carrito.length;
+}

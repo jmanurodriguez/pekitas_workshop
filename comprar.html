@@ -12,7 +12,11 @@
 <body>
     <div class="d-flex flex-column min-vh-100">
         <header class="bg-footer text-white text-center py-3 no-fringe">
-            <img src="https://i.ibb.co/d4QdwVQ/pekitas-logo-1.webp" alt="Logo" class="logo">
+            <figure>
+                <a href="#">
+                    <img src="https://i.ibb.co/d4QdwVQ/pekitas-logo-1.webp" alt="Logo de Pekitas Ecotienda" class="logo">
+                </a>
+            </figure>
             <h1>Pekitas Ecotienda Finalizar Compra</h1>
             <nav class="navbar navbar-expand-lg navbar-light bg-footer">
                 <div class="container-fluid">
@@ -32,17 +36,23 @@
                                 <a class="nav-link text-white" href="index.html#contacto">Contacto</a>
                             </li>
                             <li class="nav-item">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="carrito.html">
-                                        Carrito <i class="fas fa-shopping-cart"></i>
-                                    </a>
-                                </li>
-                                
+                                <a class="nav-link text-white" href="carrito.html">
+                                    Carrito <i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-secondary">0</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
+            <!-- Agregamos la sección del banner aquí -->
+    <section id="banner" class="banner my-0">
+        <div class="container-fluid p-0">
+            <div class="banner-container">
+                <img src="https://res-console.cloudinary.com/dpcpcnqmq/thumbnails/v1/image/upload/v1722779555/QmFubmVyX3dlYl9ob3Jpem9udGFsX251ZXZvc19pbmdyZXNvc19tYXF1aWxsYWplX2dyYWRpZW50ZV9jb2xvcmlkb18xOTIwX3hfMzAwX3B4X290cHpsZA==/drilldown" alt="Banner Promocional" class="banner-img">
+            </div>
+        </div>
+    </section>
         <main class="container my-4 flex-grow-1">
             <div id="resumen-compra" class="mb-4">
                 
@@ -76,5 +86,6 @@
         </footer>
     </div>
     <script src="scripts/comprar.js"></script>
+    <script src="scripts/formulario.js"></script> <!-- Enlace al nuevo archivo JS -->
 </body>
 </html>

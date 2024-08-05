@@ -1,18 +1,12 @@
-function calcularDescuentosYCuotas(totalCompra) {
-    if (totalCompra >= 65000) return { cuotas: 12, descuento: 15 };
-    if (totalCompra >= 50000) return { cuotas: 12, descuento: 10 };
-    if (totalCompra >= 40000) return { cuotas: 6, descuento: 10 };
-    if (totalCompra >= 30000) return { cuotas: 6, descuento: 5 };
-    if (totalCompra >= 20000) return { cuotas: 3, descuento: 5 };
-    if (totalCompra >= 15000) return { cuotas: 3, descuento: 0 };
-    return { cuotas: 0, descuento: 0 };
-}
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarResumenCompra();
+    console.log('Resumen de compra cargado');
+});
 
-const aplicarDescuento = (total, descuento) => total - (total * descuento / 100);
-
+// ---- Función para mostrar el resumen de la compra ----
 function mostrarResumenCompra() {
     const resumenCompra = document.getElementById('resumen-compra');
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let carrito = getCarrito();
     resumenCompra.innerHTML = '';
     let total = 0;
 
@@ -41,15 +35,25 @@ function mostrarResumenCompra() {
         <p>Cuotas: ${cuotas}</p>
     `;
     resumenCompra.appendChild(resumenTotal);
+
+    console.log('Resumen de compra actualizado', {
+        total,
+        descuento,
+        totalConDescuento,
+        cuotas
+    });
 }
 
+// ---- Función para eliminar productos del carrito ----
 function eliminarDelCarrito(index) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    let carrito = getCarrito();
     carrito.splice(index, 1);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    setCarrito(carrito);
     mostrarResumenCompra();
+    console.log('Producto eliminado del carrito:', index);
 }
 
+// ---- Evento para finalizar la compra ----
 document.getElementById('finalizar-compra').addEventListener('click', () => {
     localStorage.removeItem('carrito');
     Swal.fire({
@@ -60,6 +64,5 @@ document.getElementById('finalizar-compra').addEventListener('click', () => {
     }).then(() => {
         window.location.href = 'index.html';
     });
+    console.log('Compra finalizada');
 });
-
-document.addEventListener('DOMContentLoaded', mostrarResumenCompra);

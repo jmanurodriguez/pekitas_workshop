@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactoForm');
+    console.log('Formulario de contacto cargado');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Error',
                 text: 'Por favor, completa todos los campos.',
             });
+            console.log('Error: Campos incompletos en el formulario');
             return;
         }
 
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: 'Error',
                 text: 'Por favor, ingresa un email válido.',
             });
+            console.log('Error: Email inválido ingresado');
             return;
         }
 
@@ -33,10 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'Enviado',
             text: 'Tu mensaje ha sido enviado con éxito.',
         });
+        console.log('Formulario enviado con éxito');
 
         form.reset();
     });
 
+    // ---- Función para validar el email ----
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase());

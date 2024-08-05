@@ -12,10 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+    <!-- ---- Header ---- -->
     <header class="bg-footer text-white text-center py-3 no-fringe">
         <figure>
             <a href="#">
-                <img src="https://i.ibb.co/d4QdwVQ/pekitas-logo-1.webp" alt="Logo de Pekitas Ecotienda" class="logo">
+                <img src="https://i.ibb.co/d4QdwVQ/pekitas-logo-1.webp" alt="Logo de Pekitas Ecotienda" class="logo" loading="lazy">
             </a>
         </figure>
         <h1>Pekitas Ecotienda</h1>
@@ -47,19 +48,21 @@
         </nav>
     </header>
     
+    <!-- ---- Banner ---- -->
     <section id="banner" class="banner my-0">
         <div class="container-fluid p-0">
             <div class="banner-container">
-                <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722779555/Banner_web_horizontal_nuevos_ingresos_maquillaje_gradiente_colorido_1920_x_300_px_otpzld.png" alt="Banner Promocional" class="banner-img">
+                <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722779555/Banner_web_horizontal_nuevos_ingresos_maquillaje_gradiente_colorido_1920_x_300_px_otpzld.png" alt="Banner Promocional" class="banner-img" loading="lazy">
             </div>
         </div>
     </section>
     
+    <!-- ---- Sección Sobre Nosotros ---- -->
     <section id="nosotros" class="sobre-nosotros">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722728852/homesprai_sekfvv.jpg" alt="Sobre Nosotros" class="img-fluid">
+                    <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722728852/homesprai_sekfvv.jpg" alt="Sobre Nosotros" class="img-fluid" loading="lazy">
                 </div>
                 <div class="col-md-6">
                     <h2 class="titulo-nosotros">Sobre Nosotros</h2>
@@ -71,6 +74,7 @@
         </div>
     </section>
 
+    <!-- ---- Sección de Productos ---- -->
     <main class="container my-4">
         <h2 class="titulo-productos text-center">Nuestros Productos</h2>
         <div id="productos" class="row">
@@ -81,12 +85,14 @@
         </nav>
     </main>
     
+    <!-- ---- Imagen Promocional ---- -->
     <section id="imagen-promocional" class="my-5 text-center">
         <div class="container">
-            <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722792525/Agua_de_rosas_qkxkmu.png" alt="Imagen Promocional" class="img-fluid rounded">
+            <img src="https://res.cloudinary.com/dpcpcnqmq/image/upload/v1722792525/Agua_de_rosas_qkxkmu.png" alt="Imagen Promocional" class="img-fluid rounded" loading="lazy">
         </div>
     </section>
     
+    <!-- ---- Sección de Contacto ---- -->
     <section id="contacto" class="contacto my-5">
         <div class="container">
             <h2 class="titulo-contacto text-center mb-4">Contacto</h2>
@@ -120,12 +126,13 @@
         </div>
     </section>
     
+    <!-- ---- Footer ---- -->
     <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="https://i.ibb.co/d4QdwVQ/pekitas-logo-1.webp" alt="Logo de Pekitas Ecotienda" class="logo">
+                        <img src="https://i.ibb.co/d4QdwVQ/pekitas-logo-1.webp" alt="Logo de Pekitas Ecotienda" class="logo" loading="lazy">
                     </a>
                 </figure>
             </div>
@@ -144,7 +151,7 @@
         </div>
     </footer>
 
-    <!-- Modal -->
+    <!-- ---- Modal de Promoción ---- -->
     <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -164,7 +171,7 @@
         </div>
     </div>
 
-    <!-- Modal para mostrar el carrito -->
+    <!-- ---- Modal para mostrar el carrito ---- -->
     <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -173,8 +180,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="items-carrito" class="mb-4">
-                    </div>
+                    <div id="items-carrito" class="mb-4"></div>
                     <p id="total" class="text-end total-descuentos">Total: $0</p>
                 </div>
                 <div class="modal-footer">
@@ -184,19 +190,21 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- ---- Scripts ---- -->
+    <script src="scripts/utilidades.js"></script>
     <script src="scripts/productos.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/formulario.js"></script>
 
-    <!-- Templates -->
+    <!-- ---- Templates ---- -->
     <template id="producto-template">
         <div class="col-md-4 mb-4">
             <div class="card">
-                <img class="card-img-top" alt="nombre-producto">
+                <img class="card-img-top" alt="nombre-producto" loading="lazy">
                 <div class="card-body text-center">
                     <h5 class="card-title">nombre-producto</h5>
-                    <p class="card-text">precio-producto</p>
+                    <p class="card-text font-weight-bold">precio-producto</p>
                     <button class="btn btn-primary">Agregar al Carrito</button>
                 </div>
             </div>
@@ -206,11 +214,11 @@
     <template id="carrito-item-template">
         <div class="row mb-3">
             <div class="col-4">
-                <img class="img-fluid" alt="nombre-producto">
+                <img class="img-fluid" alt="nombre-producto" loading="lazy">
             </div>
             <div class="col-4">
                 <h5>nombre-producto</h5>
-                <p>precio-producto</p>
+                <p class="font-weight-bold">precio-producto</p>
             </div>
             <div class="col-4 text-end">
                 <button class="btn btn-danger">Eliminar</button>

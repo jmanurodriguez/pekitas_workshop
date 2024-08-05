@@ -94,15 +94,15 @@ const mostrarCarrito = () => {
     const { cuotas, descuento } = calcularDescuentosYCuotas(total);
     const totalConDescuento = aplicarDescuento(total, descuento);
 
-    const resumenTotal = document.createElement('div');
-    resumenTotal.className = 'text-end total-descuentos';
-    resumenTotal.innerHTML = `
+    const resumenTotal = `
         <p>Total: $${total}</p>
         <p>Descuento: ${descuento}%</p>
         <p>Total con descuento: $${totalConDescuento}</p>
         <p>Cuotas: ${cuotas}</p>
     `;
-    itemsCarrito.appendChild(resumenTotal);
+    
+    document.getElementById('total').innerHTML = resumenTotal;
+
     console.log('Resumen de compra actualizado', {
         total,
         descuento,

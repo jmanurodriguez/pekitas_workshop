@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             productos = data;
             console.log("Productos cargados:", productos);
-            renderProductos(paginaActual);
+            renderProductos(paginaActual);  // Asegúrate de que paginaActual esté definida
             actualizarContadorCarrito();
         })
         .catch(error => console.error('Error al cargar productos:', error));

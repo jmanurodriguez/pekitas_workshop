@@ -2,6 +2,10 @@ let paginaActual = 1;
 const productosPorPagina = 6;
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Mostrar el modal promocional al cargar la página
+    const promoModal = new bootstrap.Modal(document.getElementById('promoModal'));
+    promoModal.show();
+
     // Cargar productos desde productos.json
     fetch('productos.json')
         .then(response => response.json())

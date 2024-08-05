@@ -44,5 +44,5 @@ productos.json # Datos de productos
 
 1. **Clonar el Repositorio:**
    ```bash
-   git clone https://github.com/tu_usuario/pekitas-ecotienda.git
+   git clone https://github.com/jmanurodriguez/pekitas-ecotienda.git
    cd pekitas-ecotienda

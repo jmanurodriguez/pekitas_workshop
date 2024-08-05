@@ -1,9 +1,10 @@
-// ---- Funciones para el manejo del carrito ----
+/* ---- Funciones para Manejo del Carrito ---- */
 const getCarrito = () => JSON.parse(localStorage.getItem('carrito')) || [];
 const setCarrito = (carrito) => localStorage.setItem('carrito', JSON.stringify(carrito));
 
-// ---- Función para renderizar productos ----
+/* ---- Función para Renderizar Productos ---- */
 const renderProductos = (pagina) => {
+    console.log('Renderizando productos para la página:', pagina);
     const contenedorProductos = document.getElementById('productos');
     contenedorProductos.innerHTML = "";
     const fragment = document.createDocumentFragment();
@@ -24,11 +25,11 @@ const renderProductos = (pagina) => {
 
     contenedorProductos.appendChild(fragment);
     mostrarPaginacion(pagina);
-    console.log('Productos renderizados para la página:', pagina);
 };
 
-// ---- Función para mostrar la paginación ----
+/* ---- Función para Mostrar Paginación ---- */
 const mostrarPaginacion = (paginaActual) => {
+    console.log('Mostrando paginación para la página:', paginaActual);
     const totalPaginas = Math.ceil(productos.length / productosPorPagina);
     const contenedorPaginacion = document.getElementById('pagination');
     contenedorPaginacion.innerHTML = "";
@@ -53,10 +54,9 @@ const mostrarPaginacion = (paginaActual) => {
     }
 
     crearItemPaginacion(paginaActual + 1, '&raquo;', false, paginaActual === totalPaginas);
-    console.log('Paginación mostrada:', { paginaActual, totalPaginas });
 };
 
-// ---- Función para agregar un producto al carrito ----
+/* ---- Función para Agregar Productos al Carrito ---- */
 const agregarAlCarrito = (index) => {
     let carrito = getCarrito();
     carrito.push(productos[index]);
@@ -68,11 +68,11 @@ const agregarAlCarrito = (index) => {
         timer: 1500
     });
     actualizarContadorCarrito();
-    console.log('Producto agregado al carrito:', productos[index]);
 };
 
-// ---- Función para mostrar los productos del carrito ----
+/* ---- Función para Mostrar el Carrito ---- */
 const mostrarCarrito = () => {
+    console.log('Mostrando carrito');
     const itemsCarrito = document.getElementById('items-carrito');
     let carrito = getCarrito();
     itemsCarrito.innerHTML = '';
@@ -94,21 +94,34 @@ const mostrarCarrito = () => {
     const { cuotas, descuento } = calcularDescuentosYCuotas(total);
     const totalConDescuento = aplicarDescuento(total, descuento);
 
-    document.getElementById('total').innerText = `Total: $${total} \n Descuento: ${descuento}% \n Total con descuento: $${totalConDescuento} \n Cuotas: ${cuotas}`;
-    console.log('Carrito mostrado con productos:', carrito);
+    const resumenTotal = document.createElement('div');
+    resumenTotal.className = 'text-end total-descuentos';
+    resumenTotal.innerHTML = `
+        <p>Total: $${total}</p>
+        <p>Descuento: ${descuento}%</p>
+        <p>Total con descuento: $${totalConDescuento}</p>
+        <p>Cuotas: ${cuotas}</p>
+    `;
+    itemsCarrito.appendChild(resumenTotal);
+    console.log('Resumen de compra actualizado', {
+        total,
+        descuento,
+        totalConDescuento,
+        cuotas
+    });
 };
 
-// ---- Función para eliminar un producto del carrito ----
+
+/* ---- Función para Eliminar Productos del Carrito ---- */
 const eliminarDelCarrito = (index) => {
     let carrito = getCarrito();
     carrito.splice(index, 1);
     setCarrito(carrito);
     mostrarCarrito();
     actualizarContadorCarrito();
-    console.log('Producto eliminado del carrito:', index);
 };
 
-// ---- Función para calcular descuentos y cuotas ----
+/* ---- Función para Calcular Descuentos y Cuotas ---- */
 const calcularDescuentosYCuotas = (totalCompra) => {
     if (totalCompra >= 65000) return { cuotas: 12, descuento: 15 };
     if (totalCompra >= 50000) return { cuotas: 12, descuento: 10 };
@@ -119,5 +132,5 @@ const calcularDescuentosYCuotas = (totalCompra) => {
     return { cuotas: 0, descuento: 0 };
 };
 
-// ---- Función para aplicar el descuento ----
+/* ---- Función para Aplicar Descuento ---- */
 const aplicarDescuento = (total, descuento) => total - (total * descuento / 100);

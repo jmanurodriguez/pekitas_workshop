@@ -8,7 +8,6 @@ body {
     padding: 0;
 }
 
-/* ---- Header y Navbar ---- */
 header, .navbar, .nav {
     background-color: #d42d97;
 }
@@ -42,7 +41,6 @@ header, .navbar, .nav {
     background-color: #ff85c0;
 }
 
-/* ---- Logo ---- */
 .logo {
     width: 120px;
     height: auto;
@@ -52,7 +50,6 @@ header, .navbar, .nav {
     filter: brightness(150%) contrast(150%);
 }
 
-/* ---- Contenedor General ---- */
 .container {
     padding: 20px;
 }
@@ -97,11 +94,29 @@ header, .navbar, .nav {
     background-color: #ff85c0;
 }
 
-/* ---- Estilos Específicos para el Carrito y la Compra ---- */
-#items-carrito img,
-#resumen-compra img {
+/* ---- Estilos para el Carrito ---- */
+#items-carrito .img-fluid {
     width: 100px;
     height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#items-carrito h5 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    color: #ee439277;
+}
+
+#items-carrito p {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #cd1a6e;
+}
+
+#items-carrito .btn-danger {
+    font-size: 0.8em;
 }
 
 .total-descuentos {
@@ -202,13 +217,11 @@ header, .navbar, .nav {
     color: #fff;
 }
 
-/* ---- Animación de FadeIn ---- */
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
 
-/* ---- Estilos para los Productos ---- */
 #productos .row {
     display: flex;
     flex-wrap: wrap;
@@ -220,7 +233,6 @@ header, .navbar, .nav {
     margin: 10px;
 }
 
-/* ---- Estilos para el Footer ---- */
 .pie-pagina ul {
     list-style: none;
     padding: 0;
@@ -269,7 +281,7 @@ footer {
     line-height: 1.6;
 }
 
-/* ---- Estilo para el Texto Lorem ---- */
+/* ---- Estilo para el Lorem ---- */
 .lorem-text {
     color: #333;
     font-size: 1.1rem;
@@ -378,7 +390,6 @@ footer {
         font-size: 0.7em;
     }
 }
-
 /* ---- Estilos para el Carrito ---- */
 #resumen-carrito {
     background-color: #fff;
@@ -390,7 +401,31 @@ footer {
     margin: auto;
 }
 
-/* ---- Estilo mejorado para la Sección de Imagen Promocional ---- */
+#resumen-carrito .img-fluid {
+    width: 100px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#resumen-carrito h5 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+#resumen-carrito p {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+}
+
+#resumen-carrito .btn-danger {
+    font-size: 0.8em;
+}
+
+/* ---- Estilo Mejorado para la Sección de Imagen Promocional ---- */
 #imagen-promocional {
     background-color: #f5f5f5;
     padding: 40px 0;
@@ -488,7 +523,7 @@ footer {
 
 .modal-body p {
     font-size: 1.2em;
-    color: #333;
+    color: #cd1a6e;
 }
 
 .modal-footer {
@@ -525,7 +560,7 @@ footer {
     background-color: #218838;
 }
 
-/* ---- Otros Estilos ---- */
+/* ---- Otros Estilos Previos ---- */
 .banner {
     width: 100%;
     display: flex;

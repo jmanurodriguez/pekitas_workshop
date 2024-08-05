@@ -23,6 +23,7 @@ index.html # Página principal
 productos.json # Datos de productos
 
 
+
 ## Tecnologías Utilizadas
 
 - **HTML5:** Para la estructura y el contenido de la página.
@@ -32,6 +33,7 @@ productos.json # Datos de productos
 - **SweetAlert2:** Para alertas y diálogos modales atractivos.
 - **Font Awesome:** Para los iconos.
 - **JSON:** Para los datos de los productos.
+- **Canva:** Para la creación de banners y elementos visuales.
 
 ## Requisitos
 
@@ -42,5 +44,5 @@ productos.json # Datos de productos
 
 1. **Clonar el Repositorio:**
    ```bash
-   git clone https://github.com/tu_usuario/pekitas-ecotienda.git
+   git clone https://github.com/jmanurodriguez/pekitas-ecotienda.git
    cd pekitas-ecotienda
